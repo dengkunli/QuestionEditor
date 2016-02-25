@@ -48,8 +48,10 @@ angular.module('questionEditor', [])
                         $timeout(function() {
                             var q = document.getElementById('qe-question-no-' + $scope.questions.length);
                             var overlay = q.lastChild.previousSibling;
-                            overlay.style.backgroundColor = 'rgba(0,0,0,0.2)';
+                            overlay.transitionTimingFunction = 'ease-out';
+                            overlay.style.backgroundColor = 'rgba(0,0,0,0.1)';
                             $timeout(function() {
+                                overlay.transitionTimingFunction = 'ease-in';
                                 overlay.style.backgroundColor = 'rgba(0,0,0,0)';
                                 $timeout(function() {
                                     q.removeChild(overlay);

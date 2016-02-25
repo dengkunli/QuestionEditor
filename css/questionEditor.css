@@ -14,7 +14,7 @@ question-editor {
     width: 100%;
     height: 100%;
     background-color: transparent;
-    transition: background-color ease-in-out .5s; }
+    transition: background-color .5s; }
   question-editor .qe-choice-wrapper {
     margin: 10px 0;
     overflow: visible; }
