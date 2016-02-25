@@ -21,7 +21,7 @@ angular.module('questionEditor', [])
                 },
                 controller: ['$scope', function($scope) {
                     //console.log('====ctrl qe====');
-                    //console.log($scope);
+                    console.log($scope);
                     //console.log($scope.questions);
                     $scope.addQuestion = function() {
                         var type = document.getElementById('qe-type-selector').value;
@@ -54,7 +54,7 @@ angular.module('questionEditor', [])
                         return -1;
                     };
                 }],
-                templateUrl: '/html/questionEditor.html',
+                templateUrl: '../html/questionEditor.html',
                 link: function(scope, element, attrs) {
                     //console.log('====link qe====');
                     //console.log(scope);
@@ -83,7 +83,7 @@ angular.module('questionEditor', [])
                     //console.log($scope);
                     //console.log($scope.questions);
                 }],
-                templateUrl: '/html/qeRadio.html',
+                templateUrl: '../html/qeRadio.html',
                 link: function(scope, element, attrs) {
                     //console.log('====link ra====');
                     //console.log(scope);
@@ -122,7 +122,7 @@ angular.module('questionEditor', [])
                     //console.log($scope);
                     //console.log($scope.questions);
                 }],
-                templateUrl: '/html/qeCheckbox.html',
+                templateUrl: '../html/qeCheckbox.html',
                 link: function(scope, element, attrs) {
                     //console.log('====link ra====');
                     //console.log(scope);

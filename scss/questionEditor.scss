@@ -1,3 +1,5 @@
+$primary-color: #1A9FF9;
+$secondary-color: #777;
 question-editor {
   margin: 30px 0;
 
@@ -150,6 +152,15 @@ question-editor {
         height: 20px;
         display: inline-block;
       }
+    }
+  }
+
+  a {
+    color: $secondary-color;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
