@@ -50,8 +50,9 @@ question-editor {
   question-editor select {
     width: auto;
     height: 30px;
-    padding: 8px;
-    border: 1px solid #cacaca;
+    padding: 0 8px;
+    border: none;
+    border-bottom: 1px solid #cacaca;
     margin: 0 0 16px;
     font-size: 16px;
     line-height: normal;
@@ -105,7 +106,8 @@ question-editor {
     color: #777;
     cursor: pointer; }
     question-editor a:hover {
-      text-decoration: underline; }
+      color: #000;
+      text-decoration: none; }
   question-editor .qe-checkbox-btn-wrapper {
     overflow: visible; }
     question-editor .qe-checkbox-btn-wrapper:hover:after {
