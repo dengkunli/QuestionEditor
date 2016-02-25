@@ -23,6 +23,7 @@ angular.module('questionEditor', [])
                     //console.log('====ctrl qe====');
                     //console.log($scope);
                     //console.log($scope.questions);
+                    $scope.editor = document.getElementsByTagName('question-editor')[0];
                     $scope.hasQuestion = $scope.questions.length > 0;
                     $scope.addQuestion = function() {
                         var type = document.getElementById('qe-type-selector').value;
@@ -41,10 +42,8 @@ angular.module('questionEditor', [])
                             answer: null
                         });
                         var template = '<' + type + ' questions="questions"' +
-                            ' question-no="' + $scope.questions.length + '"' +
-                            ' ' + ' />';
-                        document.getElementsByTagName('question-editor')[0]
-                            .insertBefore(($compile(template)($scope))[0], editor.lastChild);
+                            ' question-no="' + $scope.questions.length + '"' + ' />';
+                        $scope.editor.insertBefore(($compile(template)($scope))[0], $scope.editor.lastChild);
                         /**
                          * Dependency of jQuery removed, this is the original backup:
                          * var addSection = document.getElementById('qe-add-question-section')[0];
@@ -55,8 +54,24 @@ angular.module('questionEditor', [])
                         $scope.hasQuestion = true;
                     };
                     $scope.removeQuestion = function(questionNo) {
-                        questionNo = Number.parseInt(questionNo);
-                        //document.getElementById();
+                        // Remove from DOM
+                        $scope.editor.removeChild(document.getElementById('qe-question-no-' + questionNo).parentNode);
+                        // Remove from $scope.questions
+                        var found = false;
+                        var len = $scope.questions.length;
+                        for (var i = 0; i < len; i++) {
+                            if (found === false) {
+                                if ($scope.questions[i].questionNo == questionNo) {
+                                    $scope.questions.splice(Number.parseInt(i), 1);
+                                    found = true;
+                                    i--;
+                                    len--;
+                                }
+                            }
+                            else {
+                                $scope.questions[i].questionNo--;
+                            }
+                        }
                         // Update hasQuestion if neccessary
                         if ($scope.questions.length == 0) {
                             $scope.hasQuestion = false;
@@ -119,7 +134,9 @@ angular.module('questionEditor', [])
                         }
                         scope.question.content.choices.pop();
                     };
-                    scope.removeQuestion = scope.$parent.removeQuestion(attrs.questionNo);
+                    scope.removeQuestion = function() {
+                        scope.$parent.removeQuestion(scope.question.questionNo);
+                    };
                     scope.status = function(choiceNo) {
                         if (scope.question.answer === undefined || scope.question.answer === null) {
                             return 'qe-unchecked';
@@ -166,7 +183,9 @@ angular.module('questionEditor', [])
                         }
                         scope.question.content.choices.pop();
                     };
-                    scope.removeQuestion = scope.$parent.removeQuestion(attrs.questionNo);
+                    scope.removeQuestion = function() {
+                        scope.$parent.removeQuestion(scope.question.questionNo);
+                    };
                     scope.status = function(choiceNo) {
                         if (scope.question.answer === undefined || scope.question.answer === null) {
                             return 'qe-unchecked';
