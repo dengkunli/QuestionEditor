@@ -21,8 +21,9 @@ angular.module('questionEditor', [])
                 },
                 controller: ['$scope', function($scope) {
                     //console.log('====ctrl qe====');
-                    console.log($scope);
+                    //console.log($scope);
                     //console.log($scope.questions);
+                    $scope.hasQuestion = $scope.questions.length > 0;
                     $scope.addQuestion = function() {
                         var type = document.getElementById('qe-type-selector').value;
                         $scope.questions.push({
@@ -31,10 +32,10 @@ angular.module('questionEditor', [])
                             content: {
                                 title: '',
                                 choices: [
-                                    {
-                                        choiceNo: 1,
-                                        description: ''
-                                    }
+                                    {choiceNo: 1, description: ''},
+                                    {choiceNo: 2, description: ''},
+                                    {choiceNo: 3, description: ''},
+                                    {choiceNo: 4, description: ''},
                                 ]
                             },
                             answer: null
@@ -42,8 +43,24 @@ angular.module('questionEditor', [])
                         var template = '<' + type + ' questions="questions"' +
                             ' question-no="' + $scope.questions.length + '"' +
                             ' ' + ' />';
-                        var addBtn = document.getElementById('qe-add-question-section');
-                        ($compile(template)($scope)).insertBefore(addBtn);
+                        document.getElementsByTagName('question-editor')[0]
+                            .insertBefore(($compile(template)($scope))[0], editor.lastChild);
+                        /**
+                         * Dependency of jQuery removed, this is the original backup:
+                         * var addSection = document.getElementById('qe-add-question-section')[0];
+                         * ($compile(template)($scope)).insertBefore(addSection);
+                         */
+
+                        // Update hasQuestion status variable
+                        $scope.hasQuestion = true;
+                    };
+                    $scope.removeQuestion = function(questionNo) {
+                        questionNo = Number.parseInt(questionNo);
+                        //document.getElementById();
+                        // Update hasQuestion if neccessary
+                        if ($scope.questions.length == 0) {
+                            $scope.hasQuestion = false;
+                        }
                     };
                     $scope.findQuestionByNo = function(questionNo) {
                         for (var i in $scope.questions) {
@@ -90,11 +107,19 @@ angular.module('questionEditor', [])
                     //console.log(attrs);
                     scope.question = scope.$parent.findQuestionByNo(attrs.questionNo);
                     scope.addChoice = function() {
-                        scope.question.content.choices.push({description: ''});
+                        scope.question.content.choices.push({
+                            choiceNo: scope.question.content.choices.length + 1,
+                            description: ''
+                        });
                     };
                     scope.removeChoice = function() {
+                        if (scope.question.answer == scope.question.content.choices.length) {
+                            // To one deleted is the marked answer
+                            scope.question.answer = null;
+                        }
                         scope.question.content.choices.pop();
                     };
+                    scope.removeQuestion = scope.$parent.removeQuestion(attrs.questionNo);
                     scope.status = function(choiceNo) {
                         if (scope.question.answer === undefined || scope.question.answer === null) {
                             return 'qe-unchecked';
@@ -129,10 +154,41 @@ angular.module('questionEditor', [])
                     //console.log(attrs);
                     scope.question = scope.$parent.findQuestionByNo(attrs.questionNo);
                     scope.addChoice = function() {
-                        scope.question.content.choices.push({description: ''});
+                        scope.question.content.choices.push({
+                            choiceNo: scope.question.content.choices.length + 1,
+                            description: ''
+                        });
                     };
                     scope.removeChoice = function() {
+                        var index = scope.question.answer.indexOf(scope.question.content.choices.length);
+                        if (index !== -1) {
+                            scope.question.answer.splice(index, 1);
+                        }
                         scope.question.content.choices.pop();
+                    };
+                    scope.removeQuestion = scope.$parent.removeQuestion(attrs.questionNo);
+                    scope.status = function(choiceNo) {
+                        if (scope.question.answer === undefined || scope.question.answer === null) {
+                            return 'qe-unchecked';
+                        }
+                        else if (scope.question.answer.indexOf(choiceNo) !== -1) {
+                            return 'qe-checked';
+                        }
+                        else return 'qe-unchecked';
+                    };
+                    scope.toggle = function(choiceNo) {
+                        if (scope.question.answer === undefined || scope.question.answer === null) {
+                            scope.question.answer = [choiceNo];
+                        }
+                        else {
+                            var index = scope.question.answer.indexOf(choiceNo);
+                            if (index === -1) {
+                                scope.question.answer.push(choiceNo);
+                            }
+                            else {
+                                scope.question.answer.splice(index, 1);
+                            }
+                        }
                     }
                 }
             }

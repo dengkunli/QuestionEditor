@@ -1,4 +1,4 @@
-<div class="qe-question qe-section">
+<div id="qe-question-no-{{question.questionNo}}" class="qe-question qe-section">
     <div class="qe-question-title-wrapper">
         <span class="qe-question-no">{{question.questionNo}}.</span>
         <div>
@@ -19,6 +19,6 @@
         </div>
         <a ng-click="addChoice()" class="qe-add-choice-btn">Add a choice</a>
         <a ng-click="removeChoice()" class="qe-remove-choice-btn">Remove a choice</a>
-        <p>Note: Choose the correct answer after editing.</p>
+        <a ng-click="removeQuestion()" class="qe-remove-question-btn">Remove this question</a>
     </div>
 </div>

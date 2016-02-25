@@ -1,4 +1,4 @@
-$primary-color: #1A9FF9;
+$primary-color: #107fca;
 $secondary-color: #777;
 question-editor {
   margin: 30px 0;
@@ -15,9 +15,10 @@ question-editor {
 
   .qe-choice-wrapper {
     margin: 10px 0;
-    overflow: hidden;
+    overflow: visible;
 
-    .qe-radio-btn-wrapper {
+    .qe-radio-btn-wrapper,
+    .qe-checkbox-btn-wrapper {
       position: relative;
       display: inline-block;
       float: left;
@@ -161,6 +162,73 @@ question-editor {
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  // Checkbox
+
+  .qe-checkbox-btn-wrapper {
+    overflow: visible;
+    &:hover:after {
+      content: '';
+      box-sizing: content-box;
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: 20px;
+      height: 20px;
+      border: 4px solid #D9D9D9;
+      background-color: $primary-color;
+
+    }
+    &.qe-checked:after {
+      background-color: transparent;
+    }
+  }
+
+  .qe-checkbox-off {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 2px;
+    transition: border-color ease .3s;
+    &:hover {
+      //background-color: $primary-color;
+    }
+  }
+
+  .qe-checkbox-on {
+    box-sizing: border-box;
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    width: 6px;
+    height: 12px;
+    border-bottom: 2px solid rgba(255,255,255,0.95);
+    border-right: 2px solid rgba(255,255,255,0.95);
+    transform: rotate(45deg);
+  }
+
+  .qe-unchecked {
+    .qe-checkbox-off {
+      border-color: $secondary-color;
+    }
+    .qe-checkbox-on {
+      display: none;
+    }
+  }
+
+  .qe-checked {
+    .qe-checkbox-off {
+      border-width: 0;
+      background-color: $primary-color;
+    }
+    .qe-checkbox-on {
+      display: block;
     }
   }
 }

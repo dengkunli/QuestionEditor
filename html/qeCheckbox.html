@@ -1,18 +1,22 @@
-<div class="qe-question qe-section">
-    <h5>Question No.{{question.questionNo}}</h5>
+<div id="qe-question-no-{{question.questionNo}}" class="qe-question qe-section">
     <div class="qe-question-title-wrapper">
-        <input type="text" ng-model="question.content.title" placeholder="What's the Question ?"/>
+        <span class="qe-question-no">{{question.questionNo}}.</span>
+        <div>
+            <input type="text" ng-model="question.content.title" placeholder="What's the Question ?"/>
+        </div>
     </div>
     <div class="qe-answers">
-        <div class="qe-checkbox-wrapper row" ng-repeat="choice in question.content.choices">
-            <div class="qe-checkbox-btn-wrapper">
-                <input name="question{{question.questionNo}}" type="checkbox"
-                       value="{{choice.description}}" />
+        <div class="qe-choice-wrapper row" ng-repeat="choice in question.content.choices">
+            <div class="qe-checkbox-btn-wrapper" ng-class="status(choice.choiceNo)" ng-click="toggle(choice.choiceNo)">
+                <div class="qe-checkbox-off"></div>
+                <div class="qe-checkbox-on"></div>
+            </div>
+            <div class="qe-choice-input-wrapper">
                 <input type="text" ng-model="choice.description" placeholder="Description of Choice"/>
             </div>
         </div>
         <a ng-click="addChoice()" class="qe-add-choice-btn">Add a choice</a>
         <a ng-click="removeChoice()" class="qe-remove-choice-btn">Remove a choice</a>
-        <p>Note: Choose the correct answers after editing.</p>
+        <a ng-click="removeQuestion()" class="qe-remove-question-btn">Remove this question</a>
     </div>
 </div>
