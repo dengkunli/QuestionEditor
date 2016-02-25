@@ -1,0 +1,155 @@
+question-editor {
+  margin: 30px 0;
+
+  .row {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .qe-section {
+    margin: 30px 0;
+  }
+
+  .qe-choice-wrapper {
+    margin: 10px 0;
+    overflow: hidden;
+
+    .qe-radio-btn-wrapper {
+      position: relative;
+      display: inline-block;
+      float: left;
+    }
+
+    .qe-choice-input-wrapper {
+      input[type='text'] {
+        height: 20px;
+        margin-left: 25px;
+        display: block;
+        overflow: hidden;
+      }
+    }
+  }
+
+  #qe-add-question-btn {
+    font-size: 16px;
+
+    &:before {
+      content: '+';
+      font-size: 20px;
+      font-weight: bold;
+      margin: auto 10px;
+    }
+  }
+
+  .qe-add-choice-btn,
+  .qe-remove-choice-btn {
+    margin-right: 15px;
+  }
+
+  .qe-question {
+    //border-bottom: #A9A9A9 1px solid;
+  }
+
+  input[type='text'] {
+    width: 100%;
+    outline: none;
+    box-shadow: none;
+    font-size: 100%;
+    margin: 0;
+    padding: 8px 3px 13px;
+    border: none;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0,0,0,0.12);
+
+    &:focus {
+      border: none;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  label {
+    width: 80%;
+  }
+
+  select {
+    width: auto;
+    height: 30px;
+    padding: 8px;
+    border: 1px solid #cacaca;
+    margin: 0 0 16px;
+    font-size: 16px;
+    line-height: normal;
+    color: #0a0a0a;
+    background-color: #fefefe;
+  }
+
+  .qe-radio-off {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50%;
+    transition: border-color ease .3s;
+  }
+
+  .qe-radio-on {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $primary-color;
+  }
+
+  .qe-unchecked {
+    .qe-radio-off {
+      border-color: $secondary-color;
+    }
+    .qe-radio-on {
+      transform: scale(0);
+    }
+  }
+
+  .qe-checked {
+    .qe-radio-off {
+      border-color: $primary-color;
+    }
+    .qe-radio-on {
+      transform: scale(.5);
+    }
+  }
+
+  .qe-question-title-wrapper {
+    height: 26px;
+    margin: 10px 0;
+    overflow: hidden;
+
+    span {
+      float: left;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    div {
+      display: block;
+      overflow: hidden;
+
+      input {
+        height: 20px;
+        display: inline-block;
+      }
+    }
+  }
+}

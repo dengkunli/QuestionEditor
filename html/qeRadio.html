@@ -1,0 +1,24 @@
+<div class="qe-question qe-section">
+    <div class="qe-question-title-wrapper">
+        <span class="qe-question-no">{{question.questionNo}}.</span>
+        <div>
+            <input type="text" ng-model="question.content.title" placeholder="What's the Question ?"/>
+        </div>
+    </div>
+    <div class="qe-answers">
+        <div class="qe-choice-wrapper row" ng-repeat="choice in question.content.choices">
+            <div class="qe-radio-btn-wrapper" ng-class="status(choice.choiceNo)" ng-click="check(choice.choiceNo)">
+                <!--input name="question{{question.questionNo}}" type="radio"
+                       value="{{choice.description}}" /-->
+                <div class="qe-radio-off"></div>
+                <div class="qe-radio-on"></div>
+            </div>
+            <div class="qe-choice-input-wrapper">
+                <input type="text" ng-model="choice.description" placeholder="Description of Choice"/>
+            </div>
+        </div>
+        <a ng-click="addChoice()" class="qe-add-choice-btn">Add a choice</a>
+        <a ng-click="removeChoice()" class="qe-remove-choice-btn">Remove a choice</a>
+        <p>Note: Choose the correct answer after editing.</p>
+    </div>
+</div>

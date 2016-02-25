@@ -1,0 +1,34 @@
+{
+  "name": "QuestionEditor",
+  "homepage": "https://github.com/dengkunli/QuestionEditor",
+  "authors": [
+    "Kunli Deng <kunli.deng.24@gmail.com>"
+  ],
+  "description": "An interactive question editor based on AngularJS",
+  "main": [
+    "js/questionEditor.js",
+    "css/questionEditor.css"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0"
+  },
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "question",
+    "quiz",
+    "editor",
+    "AngularJS",
+    "JavaScript",
+    "module"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

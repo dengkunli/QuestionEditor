@@ -1,0 +1,18 @@
+<div class="qe-question qe-section">
+    <h5>Question No.{{question.questionNo}}</h5>
+    <div class="qe-question-title-wrapper">
+        <input type="text" ng-model="question.content.title" placeholder="What's the Question ?"/>
+    </div>
+    <div class="qe-answers">
+        <div class="qe-checkbox-wrapper row" ng-repeat="choice in question.content.choices">
+            <div class="qe-checkbox-btn-wrapper">
+                <input name="question{{question.questionNo}}" type="checkbox"
+                       value="{{choice.description}}" />
+                <input type="text" ng-model="choice.description" placeholder="Description of Choice"/>
+            </div>
+        </div>
+        <a ng-click="addChoice()" class="qe-add-choice-btn">Add a choice</a>
+        <a ng-click="removeChoice()" class="qe-remove-choice-btn">Remove a choice</a>
+        <p>Note: Choose the correct answers after editing.</p>
+    </div>
+</div>
