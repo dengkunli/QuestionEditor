@@ -11,8 +11,8 @@ angular.module('questionEditor', [])
      * - Free-input Question (text inputs)
      *
      */
-    .directive('questionEditor', [ '$compile',
-        function ($compile) {
+    .directive('questionEditor', [ '$compile', '$timeout',
+        function ($compile, $timeout) {
             return {
                 restrict: 'E',
                 transclude: true,
@@ -36,14 +36,29 @@ angular.module('questionEditor', [])
                                     {choiceNo: 1, description: ''},
                                     {choiceNo: 2, description: ''},
                                     {choiceNo: 3, description: ''},
-                                    {choiceNo: 4, description: ''},
+                                    {choiceNo: 4, description: ''}
                                 ]
                             },
                             answer: null
                         });
                         var template = '<' + type + ' questions="questions"' +
                             ' question-no="' + $scope.questions.length + '"' + ' />';
-                        $scope.editor.insertBefore(($compile(template)($scope))[0], $scope.editor.lastChild);
+                        var compiledNode = ($compile(template)($scope));
+                        $scope.editor.insertBefore(compiledNode[0], $scope.editor.lastChild);
+                        $timeout(function() {
+                            var q = document.getElementById('qe-question-no-' + $scope.questions.length);
+                            var overlay = q.lastChild.previousSibling;
+                            overlay.style.backgroundColor = 'rgba(0,0,0,0.2)';
+                            $timeout(function() {
+                                overlay.style.backgroundColor = 'rgba(0,0,0,0)';
+                                $timeout(function() {
+                                    q.removeChild(overlay);
+                                }, 500);
+                            }, 500);
+                        }, 10);
+
+                        //angular.element(q).css('background-color','#777');
+                        //angular.element($scope.editor.lastChild.previousSibling.firstChild).css('background-color','transparent');
                         /**
                          * Dependency of jQuery removed, this is the original backup:
                          * var addSection = document.getElementById('qe-add-question-section')[0];
