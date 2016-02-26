@@ -42,7 +42,7 @@ Here's an example HTML code snippet.
     <!-- Question Editor -->
     <script src="path/to/questionEditor.js"></script>
     
-    <!-- Your Application Module
+    <!-- Your Application Module -->
     <script src="path/to/app.js"></script>
     
     <!-- Insert the stylesheet in the question-editing page -->
