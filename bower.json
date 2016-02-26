@@ -29,6 +29,10 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "html",
+    ".idea",
+    ".sass-cache",
+    ".gitignore"
   ]
 }
