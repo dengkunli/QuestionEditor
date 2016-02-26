@@ -1,4 +1,4 @@
-<div id="qe-question-no-{{question.questionNo}}" class="qe-question qe-section">
+'<div id="qe-question-no-{{question.questionNo}}" class="qe-question qe-section qe-text-input">
     <div class="qe-question-title-wrapper">
         <span class="qe-question-no">{{question.questionNo}}.</span>
         <div>
@@ -6,10 +6,12 @@
         </div>
     </div>
     <div class="qe-answers">
-        <div class="qe-choice-input-wrapper">
+        <div class="qe-text-input-wrapper">
             <input type="text" ng-model="question.answer" placeholder="Correct answer goes here..."/>
         </div>
-        <a ng-click="removeQuestion()" class="qe-remove-question-btn">Remove this question</a>
+        <div class="qe-remove-question-btn-wrapper">
+            <a ng-click="removeQuestion()" class="qe-remove-question-btn">Remove this question</a>
+        </div>
     </div>
     <div class="qe-overlay"></div>
-</div>
+</div>'

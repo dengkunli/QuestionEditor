@@ -20,9 +20,6 @@ angular.module('questionEditor', [])
                     questions: '='
                 },
                 controller: ['$scope', function($scope) {
-                    //console.log('====ctrl qe====');
-                    //console.log($scope);
-                    //console.log($scope.questions);
                     $scope.editor = document.getElementsByTagName('question-editor')[0];
                     $scope.hasQuestion = $scope.questions.length > 0;
                     $scope.addQuestion = function() {
@@ -85,14 +82,6 @@ angular.module('questionEditor', [])
                             }, 500);
                         }, 10);
 
-                        //angular.element(q).css('background-color','#777');
-                        //angular.element($scope.editor.lastChild.previousSibling.firstChild).css('background-color','transparent');
-                        /**
-                         * Dependency of jQuery removed, this is the original backup:
-                         * var addSection = document.getElementById('qe-add-question-section')[0];
-                         * ($compile(template)($scope)).insertBefore(addSection);
-                         */
-
                         // Update hasQuestion status variable
                         $scope.hasQuestion = true;
                     };
@@ -131,10 +120,6 @@ angular.module('questionEditor', [])
                 }],
                 templateUrl: '../html/questionEditor.html',
                 link: function(scope, element, attrs) {
-                    //console.log('====link qe====');
-                    //console.log(scope);
-                    //console.log(element);
-                    //console.log(attrs);
                     var addBtn = document.getElementById('qe-add-question-section');
                     for (var i in scope.questions) {
                         var template = '<' + scope.questions[i].type +
@@ -153,11 +138,6 @@ angular.module('questionEditor', [])
                 scope: {
                     questions: '='
                 },
-                controller: ['$scope', function($scope) {
-                    //console.log('====ctrl ra====');
-                    //console.log($scope);
-                    //console.log($scope.questions);
-                }],
                 templateUrl: '../html/qeRadio.html',
                 link: function(scope, element, attrs) {
                     //console.log('====link ra====');
@@ -202,11 +182,6 @@ angular.module('questionEditor', [])
                 scope: {
                     questions: '='
                 },
-                controller: ['$scope', function($scope) {
-                    //console.log('====ctrl cb====');
-                    //console.log($scope);
-                    //console.log($scope.questions);
-                }],
                 templateUrl: '../html/qeCheckbox.html',
                 link: function(scope, element, attrs) {
                     //console.log('====link cb====');
@@ -262,11 +237,6 @@ angular.module('questionEditor', [])
                 scope: {
                     questions: '='
                 },
-                controller: ['$scope', function($scope) {
-                    //console.log('====ctrl ti====');
-                    //console.log($scope);
-                    //console.log($scope.questions);
-                }],
                 templateUrl: '../html/qeTextInput.html',
                 link: function(scope, element, attrs) {
                     //console.log('====link ti====');

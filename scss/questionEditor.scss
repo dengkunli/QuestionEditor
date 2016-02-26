@@ -68,6 +68,7 @@ question-editor {
 
   input[type='text'] {
     width: 100%;
+    height: 20px;
     outline: none;
     box-shadow: none;
     font-size: 100%;
@@ -243,6 +244,21 @@ question-editor {
     }
     .qe-checkbox-on {
       display: block;
+    }
+  }
+
+  // Text Input
+  .qe-text-input {
+    .qe-answers {
+
+      input {
+        margin-left: 25px;
+      }
+
+      .qe-remove-question-btn-wrapper {
+        margin-top: 10px;
+        margin-left: 28px;
+      }
     }
   }
 }
