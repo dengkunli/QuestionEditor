@@ -1,5 +1,6 @@
 {
   "name": "QuestionEditor",
+  "version": "1.0.0",
   "homepage": "https://github.com/dengkunli/QuestionEditor",
   "authors": [
     "Kunli Deng <kunli.deng.24@gmail.com>"
@@ -28,7 +29,6 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "test",
     "tests",
     "html",
     ".idea",

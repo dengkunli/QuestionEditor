@@ -122,7 +122,18 @@ angular.module('questionEditor', [])
                         return -1;
                     };
                 }],
-                templateUrl: '../html/questionEditor.html',
+                template:
+                '<div id="qe-add-question-section" class="qe-section">'+
+                '    <p class="qe-hint" ng-show="hasQuestion">Note: choose/type the correct answer(s) before saving</p>'+
+                '    <div class="row">'+
+                '        <a id="qe-add-question-btn" ng-click="addQuestion()">Add a Question of type: </a>'+
+                '        <select id="qe-type-selector">'+
+                '            <option value="qe-radio">Multiple Choice Question with Single Answer</option>'+
+                '            <option value="qe-checkbox">Multiple Choice Question with Multiple Answers</option>'+
+                '            <option value="qe-text-input">Text-Input Question</option>'+
+                '        </select>'+
+                '    </div>'+
+                '</div>',
                 link: function(scope, element, attrs) {
                     var addBtn = document.getElementById('qe-add-question-section');
                     for (var i in scope.questions) {
