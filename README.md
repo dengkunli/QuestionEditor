@@ -51,7 +51,7 @@ Here's an example HTML code snippet.
     </body>
 ```
 
-## Format <a name="Format"></a> Format
+## <a name="Format"></a> Format
 
 The `questions` variable is an array of objects, each object represents a question. An example as well as specification of the format of the questions is given below :
 
