@@ -39,6 +39,8 @@ question-editor {
   question-editor .qe-add-choice-btn,
   question-editor .qe-remove-choice-btn {
     margin-right: 15px; }
+  question-editor .qe-add-choice-btn {
+    margin-left: 28px; }
   question-editor input[type='text'] {
     width: 100%;
     height: 20px;

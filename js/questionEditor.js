@@ -73,12 +73,16 @@ angular.module('questionEditor', [])
                         $scope.editor.insertBefore(compiledNode[0], $scope.editor.lastChild);
                         $timeout(function() {
                             var q = document.getElementById('qe-question-no-' + $scope.questions.length);
-                            var overlay = q.lastChild.previousSibling;
-                            overlay.transitionTimingFunction = 'ease-out';
-                            overlay.style.backgroundColor = 'rgba(0,0,0,0.1)';
+                            angular.element(q.lastChild).css('transition-timing-function', 'ease-out');
+                            angular.element(q.lastChild).css('background-color', 'rgba(0,0,0,0.1');
+                            //var overlay = q.lastChild.previousSibling;
+                            //overlay.transitionTimingFunction = 'ease-out';
+                            //overlay.style.backgroundColor = 'rgba(0,0,0,0.1)';
                             $timeout(function() {
-                                overlay.transitionTimingFunction = 'ease-in';
-                                overlay.style.backgroundColor = 'rgba(0,0,0,0)';
+                                //overlay.transitionTimingFunction = 'ease-in';
+                                //overlay.style.backgroundColor = 'rgba(0,0,0,0)';
+                                angular.element(q.lastChild).css('transition-timing-function', 'ease-in');
+                                angular.element(q.lastChild).css('background-color', 'rgba(0,0,0,0');
                             }, 500);
                         }, 10);
 
@@ -138,7 +142,30 @@ angular.module('questionEditor', [])
                 scope: {
                     questions: '='
                 },
-                templateUrl: '../html/qeRadio.html',
+                template:
+                '<div id="qe-question-no-{{question.questionNo}}" class="qe-question qe-section">'+
+                '    <div class="qe-question-title-wrapper">'+
+                '        <span class="qe-question-no">{{question.questionNo}}.</span>'+
+                '        <div>'+
+                '            <input type="text" ng-model="question.content.title" placeholder="What\'s the Question ?"/>'+
+                '        </div>'+
+                '    </div>'+
+                '    <div class="qe-answers">'+
+                '        <div class="qe-choice-wrapper row" ng-repeat="choice in question.content.choices">'+
+                '            <div class="qe-radio-btn-wrapper" ng-class="status(choice.choiceNo)" ng-click="check(choice.choiceNo)">'+
+                '                <div class="qe-radio-off"></div>'+
+                '                <div class="qe-radio-on"></div>'+
+                '            </div>'+
+                '            <div class="qe-choice-input-wrapper">'+
+                '                <input type="text" ng-model="choice.description" placeholder="Description of Choice"/>'+
+                '            </div>'+
+                '        </div>'+
+                '        <a ng-click="addChoice()" class="qe-add-choice-btn">Add a choice</a>'+
+                '        <a ng-click="removeChoice()" class="qe-remove-choice-btn">Remove a choice</a>'+
+                '        <a ng-click="removeQuestion()" class="qe-remove-question-btn">Remove this question</a>'+
+                '    </div>'+
+                '    <div class="qe-overlay"></div>'+
+                '</div>',
                 link: function(scope, element, attrs) {
                     //console.log('====link ra====');
                     //console.log(scope);
@@ -182,11 +209,31 @@ angular.module('questionEditor', [])
                 scope: {
                     questions: '='
                 },
-                templateUrl: '../html/qeCheckbox.html',
+                template:
+                '<div id="qe-question-no-{{question.questionNo}}" class="qe-question qe-section">'+
+                '    <div class="qe-question-title-wrapper">'+
+                '        <span class="qe-question-no">{{question.questionNo}}.</span>'+
+                '        <div>'+
+                '            <input type="text" ng-model="question.content.title" placeholder="What\'s the Question ?"/>'+
+                '        </div>'+
+                '    </div>'+
+                '    <div class="qe-answers">'+
+                '        <div class="qe-choice-wrapper row" ng-repeat="choice in question.content.choices">'+
+                '            <div class="qe-checkbox-btn-wrapper" ng-class="status(choice.choiceNo)" ng-click="toggle(choice.choiceNo)">'+
+                '                <div class="qe-checkbox-off"></div>'+
+                '                <div class="qe-checkbox-on"></div>'+
+                '            </div>'+
+                '            <div class="qe-choice-input-wrapper">'+
+                '                <input type="text" ng-model="choice.description" placeholder="Description of Choice"/>'+
+                '            </div>'+
+                '        </div>'+
+                '        <a ng-click="addChoice()" class="qe-add-choice-btn">Add a choice</a>'+
+                '        <a ng-click="removeChoice()" class="qe-remove-choice-btn">Remove a choice</a>'+
+                '        <a ng-click="removeQuestion()" class="qe-remove-question-btn">Remove this question</a>'+
+                '    </div>'+
+                '    <div class="qe-overlay"></div>'+
+                '</div>',
                 link: function(scope, element, attrs) {
-                    //console.log('====link cb====');
-                    //console.log(scope);
-                    //console.log(attrs);
                     scope.question = scope.$parent.findQuestionByNo(attrs.questionNo);
                     scope.addChoice = function() {
                         scope.question.content.choices.push({
@@ -237,11 +284,25 @@ angular.module('questionEditor', [])
                 scope: {
                     questions: '='
                 },
-                templateUrl: '../html/qeTextInput.html',
+                template:
+                '<div id="qe-question-no-{{question.questionNo}}" class="qe-question qe-section qe-text-input">'+
+                '    <div class="qe-question-title-wrapper">'+
+                '        <span class="qe-question-no">{{question.questionNo}}.</span>'+
+                '        <div>'+
+                '            <input type="text" ng-model="question.content.title" placeholder="What\'s the Question ?"/>'+
+                '        </div>'+
+                '    </div>'+
+                '    <div class="qe-answers">'+
+                '        <div class="qe-text-input-wrapper">'+
+                '            <input type="text" ng-model="question.answer" placeholder="Correct answer goes here..."/>'+
+                '        </div>'+
+                '        <div class="qe-remove-question-btn-wrapper">'+
+                '            <a ng-click="removeQuestion()" class="qe-remove-question-btn">Remove this question</a>'+
+                '        </div>'+
+                '    </div>'+
+                '    <div class="qe-overlay"></div>'+
+                '</div>',
                 link: function(scope, element, attrs) {
-                    //console.log('====link ti====');
-                    //console.log(scope);
-                    //console.log(attrs);
                     scope.question = scope.$parent.findQuestionByNo(attrs.questionNo);
                     scope.removeQuestion = function() {
                         scope.$parent.removeQuestion(scope.question.questionNo);
