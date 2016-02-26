@@ -8,8 +8,6 @@
     <div class="qe-answers">
         <div class="qe-choice-wrapper row" ng-repeat="choice in question.content.choices">
             <div class="qe-radio-btn-wrapper" ng-class="status(choice.choiceNo)" ng-click="check(choice.choiceNo)">
-                <!--input name="question{{question.questionNo}}" type="radio"
-                       value="{{choice.description}}" /-->
                 <div class="qe-radio-off"></div>
                 <div class="qe-radio-on"></div>
             </div>

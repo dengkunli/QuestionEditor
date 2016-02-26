@@ -27,19 +27,48 @@ angular.module('questionEditor', [])
                     $scope.hasQuestion = $scope.questions.length > 0;
                     $scope.addQuestion = function() {
                         var type = document.getElementById('qe-type-selector').value;
+                        var content, answer;
+                        switch (type) {
+                            case 'qe-radio':
+                                content = {
+                                    title: '',
+                                        choices: [
+                                        {choiceNo: 1, description: ''},
+                                        {choiceNo: 2, description: ''},
+                                        {choiceNo: 3, description: ''},
+                                        {choiceNo: 4, description: ''}
+                                    ]
+                                };
+                                answer = null;
+                                break;
+                            case 'qe-checkbox':
+                                content = {
+                                    title: '',
+                                    choices: [
+                                        {choiceNo: 1, description: ''},
+                                        {choiceNo: 2, description: ''},
+                                        {choiceNo: 3, description: ''},
+                                        {choiceNo: 4, description: ''}
+                                    ]
+                                };
+                                answer = [];
+                                break;
+                            case 'qe-text-input':
+                                content = {
+                                    title: ''
+                                };
+                                answer = null;
+                                break;
+                            default:
+                                // unknown/unsupported type of question
+                                console.log('Unsupported type of question: ' + type);
+                                return;
+                        }
                         $scope.questions.push({
                             type: type,
                             questionNo: $scope.questions.length + 1,
-                            content: {
-                                title: '',
-                                choices: [
-                                    {choiceNo: 1, description: ''},
-                                    {choiceNo: 2, description: ''},
-                                    {choiceNo: 3, description: ''},
-                                    {choiceNo: 4, description: ''}
-                                ]
-                            },
-                            answer: null
+                            content: content,
+                            answer: answer
                         });
                         var template = '<' + type + ' questions="questions"' +
                             ' question-no="' + $scope.questions.length + '"' + ' />';
@@ -53,9 +82,6 @@ angular.module('questionEditor', [])
                             $timeout(function() {
                                 overlay.transitionTimingFunction = 'ease-in';
                                 overlay.style.backgroundColor = 'rgba(0,0,0,0)';
-                                $timeout(function() {
-                                    q.removeChild(overlay);
-                                }, 500);
                             }, 500);
                         }, 10);
 
@@ -177,13 +203,13 @@ angular.module('questionEditor', [])
                     questions: '='
                 },
                 controller: ['$scope', function($scope) {
-                    //console.log('====ctrl ra====');
+                    //console.log('====ctrl cb====');
                     //console.log($scope);
                     //console.log($scope.questions);
                 }],
                 templateUrl: '../html/qeCheckbox.html',
                 link: function(scope, element, attrs) {
-                    //console.log('====link ra====');
+                    //console.log('====link cb====');
                     //console.log(scope);
                     //console.log(attrs);
                     scope.question = scope.$parent.findQuestionByNo(attrs.questionNo);
@@ -231,5 +257,25 @@ angular.module('questionEditor', [])
         })
     .directive('qeTextInput',
         function() {
-
+            return {
+                transclue: true,
+                scope: {
+                    questions: '='
+                },
+                controller: ['$scope', function($scope) {
+                    //console.log('====ctrl ti====');
+                    //console.log($scope);
+                    //console.log($scope.questions);
+                }],
+                templateUrl: '../html/qeTextInput.html',
+                link: function(scope, element, attrs) {
+                    //console.log('====link ti====');
+                    //console.log(scope);
+                    //console.log(attrs);
+                    scope.question = scope.$parent.findQuestionByNo(attrs.questionNo);
+                    scope.removeQuestion = function() {
+                        scope.$parent.removeQuestion(scope.question.questionNo);
+                    };
+                }
+            }
         });

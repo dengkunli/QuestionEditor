@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div id="qe-question-no-{{question.questionNo}}" class="qe-question qe-section">
+    <div class="qe-question-title-wrapper">
+        <span class="qe-question-no">{{question.questionNo}}.</span>
+        <div>
+            <input type="text" ng-model="question.content.title" placeholder="What's the Question ?"/>
+        </div>
+    </div>
+    <div class="qe-answers">
+        <div class="qe-choice-input-wrapper">
+            <input type="text" ng-model="question.answer" placeholder="Correct answer goes here..."/>
+        </div>
+        <a ng-click="removeQuestion()" class="qe-remove-question-btn">Remove this question</a>
+    </div>
+    <div class="qe-overlay"></div>
+</div>

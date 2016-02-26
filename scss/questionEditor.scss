@@ -22,6 +22,7 @@ question-editor {
     height: 100%;
     background-color: rgba(0,0,0,0);
     transition: background-color .5s;
+    pointer-events: none;
   }
 
   .qe-choice-wrapper {
