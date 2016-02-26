@@ -1,6 +1,10 @@
 $highlight-color: #107fca;
 $auxiliary-color: #777;
 question-editor {
+  * {
+    outline: none;
+  }
+
   margin: 30px 0;
 
   .row {
