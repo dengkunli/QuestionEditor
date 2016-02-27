@@ -102,7 +102,7 @@ question-editor {
   question-editor .qe-checked .qe-radio-on {
     transform: scale(0.5); }
   question-editor .qe-question-title-wrapper {
-    height: 22px;
+    height: 26px;
     margin: 20px 0;
     overflow: hidden; }
     question-editor .qe-question-title-wrapper span {
@@ -115,7 +115,7 @@ question-editor {
       display: block;
       overflow: hidden; }
       question-editor .qe-question-title-wrapper div input {
-        height: 20px;
+        height: 24px;
         display: inline-block; }
   question-editor a {
     color: #777;
@@ -174,5 +174,7 @@ question-editor {
   question-editor .qe-hint {
     font-style: italic;
     margin-left: 28px; }
+  question-editor .qe-answers {
+    margin-top: -5px; }
 
 /*# sourceMappingURL=questionEditor.css.map */

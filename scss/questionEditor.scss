@@ -155,7 +155,7 @@ question-editor {
   }
 
   .qe-question-title-wrapper {
-    height: 22px;
+    height: 26px;
     margin: 20px 0;
     overflow: hidden;
 
@@ -172,7 +172,7 @@ question-editor {
       overflow: hidden;
 
       input {
-        height: 20px;
+        height: 24px;
         display: inline-block;
       }
     }
@@ -274,5 +274,10 @@ question-editor {
   .qe-hint {
     font-style: italic;
     margin-left: 28px;
+  }
+
+  // General
+  .qe-answers {
+    margin-top: -5px;
   }
 }
