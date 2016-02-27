@@ -20,6 +20,7 @@ question-editor {
     pointer-events: none; }
   question-editor .qe-choice-wrapper {
     margin: 20px 0;
+    padding: 4px 0 4px 4px;
     overflow: hidden; }
     question-editor .qe-choice-wrapper .qe-radio-btn-wrapper,
     question-editor .qe-choice-wrapper .qe-checkbox-btn-wrapper {
@@ -28,7 +29,7 @@ question-editor {
       float: left; }
     question-editor .qe-choice-wrapper .qe-choice-input-wrapper input[type='text'] {
       height: 20px;
-      margin-left: 25px;
+      margin-left: 28px;
       display: block;
       overflow: hidden; }
   question-editor #qe-add-question-btn {
@@ -50,7 +51,7 @@ question-editor {
     box-shadow: none;
     font-size: 16px;
     margin: 0;
-    padding: 0 3px 3px;
+    padding: 0 3px;
     border: none;
     border-bottom-width: 1px;
     border-bottom-style: solid;
@@ -103,14 +104,17 @@ question-editor {
     transform: scale(0.5); }
   question-editor .qe-question-title-wrapper {
     height: 26px;
-    margin: 20px 0;
+    margin-top: 20px;
     overflow: hidden; }
     question-editor .qe-question-title-wrapper span {
       float: left;
       width: 20px;
-      height: 20px;
+      height: 24px;
+      line-height: 24px;
       display: inline-block;
-      margin-right: 5px; }
+      margin: 0 4px;
+      padding-right: 4px;
+      text-align: center; }
     question-editor .qe-question-title-wrapper div {
       display: block;
       overflow: hidden; }
@@ -175,6 +179,7 @@ question-editor {
     font-style: italic;
     margin-left: 28px; }
   question-editor .qe-answers {
-    margin-top: -5px; }
+    margin-top: -5px;
+    overflow: hidden; }
 
 /*# sourceMappingURL=questionEditor.css.map */
