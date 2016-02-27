@@ -68,7 +68,7 @@ question-editor {
   }
 
   .qe-add-choice-btn {
-    margin-left: 28px;
+    margin-left: 31px;
   }
 
   .qe-question {
@@ -166,8 +166,7 @@ question-editor {
       height: 24px;
       line-height: 24px;
       display: inline-block;
-      margin: 0 4px;
-      padding-right: 4px;
+      margin: 0 8px 0 4px;
       text-align: center;
     }
 
@@ -271,7 +270,7 @@ question-editor {
 
       .qe-remove-question-btn-wrapper {
         margin-top: 10px;
-        margin-left: 28px;
+        margin-left: 31px;
       }
     }
   }
@@ -279,7 +278,7 @@ question-editor {
   // Hint Text
   .qe-hint {
     font-style: italic;
-    margin-left: 28px;
+    margin-left: 31px;
   }
 
   // General

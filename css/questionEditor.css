@@ -43,7 +43,7 @@ question-editor {
   question-editor .qe-remove-choice-btn {
     margin-right: 15px; }
   question-editor .qe-add-choice-btn {
-    margin-left: 28px; }
+    margin-left: 31px; }
   question-editor input[type='text'] {
     width: 100%;
     height: 20px;
@@ -112,8 +112,7 @@ question-editor {
       height: 24px;
       line-height: 24px;
       display: inline-block;
-      margin: 0 4px;
-      padding-right: 4px;
+      margin: 0 8px 0 4px;
       text-align: center; }
     question-editor .qe-question-title-wrapper div {
       display: block;
@@ -176,10 +175,10 @@ question-editor {
       margin-left: 28px; }
     question-editor .qe-text-input .qe-answers .qe-remove-question-btn-wrapper {
       margin-top: 10px;
-      margin-left: 28px; }
+      margin-left: 31px; }
   question-editor .qe-hint {
     font-style: italic;
-    margin-left: 28px; }
+    margin-left: 31px; }
   question-editor .qe-answers {
     margin-top: -5px;
     overflow: hidden; }
