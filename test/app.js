@@ -40,7 +40,7 @@ angular.module('test', [])
                 }
             }
         ];
-        $scope.questions = [];
+        //$scope.questions = [];
 });
 
 angular.module('app', ['test', 'questionEditor'])

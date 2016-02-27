@@ -75,12 +75,7 @@ angular.module('questionEditor', [])
                             var q = document.getElementById('qe-question-no-' + $scope.questions.length);
                             angular.element(q.lastChild).css('transition-timing-function', 'ease-out');
                             angular.element(q.lastChild).css('background-color', 'rgba(0,0,0,0.1');
-                            //var overlay = q.lastChild.previousSibling;
-                            //overlay.transitionTimingFunction = 'ease-out';
-                            //overlay.style.backgroundColor = 'rgba(0,0,0,0.1)';
                             $timeout(function() {
-                                //overlay.transitionTimingFunction = 'ease-in';
-                                //overlay.style.backgroundColor = 'rgba(0,0,0,0)';
                                 angular.element(q.lastChild).css('transition-timing-function', 'ease-in');
                                 angular.element(q.lastChild).css('background-color', 'rgba(0,0,0,0');
                             }, 500);
@@ -141,7 +136,7 @@ angular.module('questionEditor', [])
                             ' questions="questions"' +
                             ' question-no="' + scope.questions[i].questionNo + '"' +
                             '  ' + ' />';
-                        ($compile(template)(scope)).insertBefore(addBtn);
+                        scope.editor.insertBefore(($compile(template)(scope))[0], scope.editor.lastChild);
                     }
                 }
             }
@@ -178,9 +173,6 @@ angular.module('questionEditor', [])
                 '    <div class="qe-overlay"></div>'+
                 '</div>',
                 link: function(scope, element, attrs) {
-                    //console.log('====link ra====');
-                    //console.log(scope);
-                    //console.log(attrs);
                     scope.question = scope.$parent.findQuestionByNo(attrs.questionNo);
                     scope.addChoice = function() {
                         scope.question.content.choices.push({
