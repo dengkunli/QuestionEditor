@@ -14,7 +14,7 @@ question-editor {
   }
 
   .qe-section {
-    padding: 15px 0;
+    padding: 1px 0;
     transition: background-color ease 2s;
     position: relative;
   }
@@ -30,8 +30,8 @@ question-editor {
   }
 
   .qe-choice-wrapper {
-    margin: 10px 0;
-    overflow: visible;
+    margin: 20px 0;
+    overflow: hidden;
 
     .qe-radio-btn-wrapper,
     .qe-checkbox-btn-wrapper {
@@ -79,7 +79,7 @@ question-editor {
     height: 20px;
     outline: none;
     box-shadow: none;
-    font-size: 100%;
+    font-size: 16px;
     margin: 0;
     padding: 0 3px 3px;
     border: none;
@@ -155,8 +155,8 @@ question-editor {
   }
 
   .qe-question-title-wrapper {
-    height: 26px;
-    margin: 10px 0;
+    height: 22px;
+    margin: 20px 0;
     overflow: hidden;
 
     span {
