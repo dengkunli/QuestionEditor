@@ -169,13 +169,13 @@ question-editor {
     background-color: #107fca; }
   question-editor .qe-checked .qe-checkbox-on {
     display: block; }
-  question-editor .qe-text-input .qe-answers {
-    margin-top: 20px; }
-    question-editor .qe-text-input .qe-answers input {
-      margin-left: 28px; }
-    question-editor .qe-text-input .qe-answers .qe-remove-question-btn-wrapper {
-      margin-top: 10px;
-      margin-left: 31px; }
+  question-editor .qe-text-input .qe-answers .qe-text-input-wrapper {
+    margin: 20px 0; }
+  question-editor .qe-text-input .qe-answers input {
+    margin-left: 31px; }
+  question-editor .qe-text-input .qe-answers .qe-remove-question-btn-wrapper {
+    margin-top: 10px;
+    margin-left: 35px; }
   question-editor .qe-hint {
     font-style: italic;
     margin-left: 31px; }

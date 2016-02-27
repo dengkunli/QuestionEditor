@@ -262,15 +262,17 @@ question-editor {
   .qe-text-input {
     .qe-answers {
 
-      margin-top: 20px;
+      .qe-text-input-wrapper {
+        margin: 20px 0;
+      }
 
       input {
-        margin-left: 28px;
+        margin-left: 31px;
       }
 
       .qe-remove-question-btn-wrapper {
         margin-top: 10px;
-        margin-left: 31px;
+        margin-left: 35px;
       }
     }
   }
