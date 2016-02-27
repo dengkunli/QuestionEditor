@@ -50,7 +50,7 @@ question-editor {
     box-shadow: none;
     font-size: 100%;
     margin: 0;
-    padding: 8px 3px 13px;
+    padding: 0 3px 3px;
     border: none;
     border-bottom-width: 1px;
     border-bottom-style: solid;
@@ -65,7 +65,7 @@ question-editor {
   question-editor select {
     width: auto;
     height: 30px;
-    padding: 0 8px;
+    padding: 0 18px 0 8px;
     border: none;
     border-bottom: 1px solid #cacaca;
     margin: 0 0 16px;
@@ -170,6 +170,9 @@ question-editor {
     margin-left: 25px; }
   question-editor .qe-text-input .qe-answers .qe-remove-question-btn-wrapper {
     margin-top: 10px;
+    margin-left: 28px; }
+  question-editor .qe-hint {
+    font-style: italic;
     margin-left: 28px; }
 
 /*# sourceMappingURL=questionEditor.css.map */

@@ -72,12 +72,12 @@ angular.module('questionEditor', [])
                         var compiledNode = ($compile(template)($scope));
                         $scope.editor.insertBefore(compiledNode[0], $scope.editor.lastChild);
                         $timeout(function() {
-                            var q = document.getElementById('qe-question-no-' + $scope.questions.length);
-                            angular.element(q.lastChild).css('transition-timing-function', 'ease-out');
-                            angular.element(q.lastChild).css('background-color', 'rgba(0,0,0,0.1');
+                            var q = window.document.getElementById('qe-question-no-' + $scope.questions.length);
+                            q.lastChild.style.transitionTimingFunction = 'ease-out';
+                            q.lastChild.style.backgroundColor = 'rgba(0,0,0,0.1)';
                             $timeout(function() {
-                                angular.element(q.lastChild).css('transition-timing-function', 'ease-in');
-                                angular.element(q.lastChild).css('background-color', 'rgba(0,0,0,0');
+                                q.lastChild.style.transitionTimingFunction = 'ease-out';
+                                q.lastChild.style.backgroundColor = 'rgba(0,0,0,0.0)';
                             }, 500);
                         }, 10);
 
@@ -86,7 +86,7 @@ angular.module('questionEditor', [])
                     };
                     $scope.removeQuestion = function(questionNo) {
                         // Remove from DOM
-                        $scope.editor.removeChild(document.getElementById('qe-question-no-' + questionNo).parentNode);
+                        $scope.editor.removeChild(window.document.getElementById('qe-question-no-' + questionNo).parentNode);
                         // Remove from $scope.questions
                         var found = false;
                         var len = $scope.questions.length;
@@ -130,7 +130,7 @@ angular.module('questionEditor', [])
                 '    </div>'+
                 '</div>',
                 link: function(scope, element, attrs) {
-                    var addBtn = document.getElementById('qe-add-question-section');
+                    var addBtn = window.document.getElementById('qe-add-question-section');
                     for (var i in scope.questions) {
                         var template = '<' + scope.questions[i].type +
                             ' questions="questions"' +
