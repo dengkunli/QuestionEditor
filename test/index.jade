@@ -5,12 +5,12 @@ html
   head
     link(rel='styleSheet',href='../css/questionEditor.css')
     style(type="text/css").
-      body {
+      #qe {
         width: 600px;
         margin: 20px auto;
       }
   body
-    div(ng-controller="qController")
+    div(id="qe" ng-controller="qController")
       question-editor(questions="questions")
 
     script(src='../bower_components/angular/angular.js')
