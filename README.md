@@ -131,5 +131,5 @@ The `questions` variable is an array of objects, each object represents a questi
             },
             answer: 'Don't know, say maybe a chili pizza.'
         }
-    ];
+    ]
 ```
