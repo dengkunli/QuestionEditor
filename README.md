@@ -4,13 +4,13 @@ An awesome question editor based on AngularJS.
 ## Demo
 
 Multiple Choice Question with Single Answer:
-[Imgur](http://i.imgur.com/1QL2rOe.gifv)
+![mcq single](http://i.imgur.com/1QL2rOe.gifv)
 
 Multiple Choice Question with Multiple Answers:
-[Imgur](http://i.imgur.com/E2kUNOO.gifv)
+![mcq multiple](http://i.imgur.com/E2kUNOO.gifv)
 
 Text-Input Question:
-[Imgur](http://i.imgur.com/ZBTUpIZ.gifv)
+![ti](http://i.imgur.com/ZBTUpIZ.gifv)
 
 A Demo free to play around is also available in my personal blog : http://dengkunli.com/en/Question-Editor-Demo/.
 
