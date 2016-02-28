@@ -3,14 +3,7 @@ An awesome question editor based on AngularJS.
 
 ## Demo
 
-Multiple Choice Question with Single Answer:
-![mcq multiple](https://cloud.githubusercontent.com/assets/13433096/13378867/d2ddf4b2-de14-11e5-837a-efe98f9634b2.gif)
-
-Multiple Choice Question with Multiple Answers:
-![mcq single](https://cloud.githubusercontent.com/assets/13433096/13378868/d6592d28-de14-11e5-8aaf-ac7a5f48d3af.gif)
-
-Text-Input Question:
-![text input](https://cloud.githubusercontent.com/assets/13433096/13378869/d86bfe42-de14-11e5-9289-3a50a8619ebf.gif)
+![mcq multiple](https://cloud.githubusercontent.com/assets/13433096/13378867/d2ddf4b2-de14-11e5-837a-efe98f9634b2.gif) ![mcq single](https://cloud.githubusercontent.com/assets/13433096/13378868/d6592d28-de14-11e5-8aaf-ac7a5f48d3af.gif) ![text input](https://cloud.githubusercontent.com/assets/13433096/13378869/d86bfe42-de14-11e5-9289-3a50a8619ebf.gif)
 
 A Demo free to play around is also available in my personal blog : http://dengkunli.com/en/Question-Editor-Demo/.
 
