@@ -1,5 +1,18 @@
 # QuestionEditor
-A cool question editor based on AngularJS. Demo is available in my personal blog : http://dengkunli.com/en/Question-Editor-Demo/.
+An awesome question editor based on AngularJS. 
+
+## Demo
+
+Multiple Choice Question with Single Answer:
+[Imgur](http://i.imgur.com/1QL2rOe.gifv)
+
+Multiple Choice Question with Multiple Answers:
+[Imgur](http://i.imgur.com/E2kUNOO.gifv)
+
+Text-Input Question:
+[Imgur](http://i.imgur.com/ZBTUpIZ.gifv)
+
+A Demo free to play around is also available in my personal blog : http://dengkunli.com/en/Question-Editor-Demo/.
 
 ## Install
 
@@ -119,9 +132,9 @@ The `questions` variable is an array of objects, each object represents a questi
             type: 'qe-text-input',
             questionNo: 3,
             content: {
-                title: 'question three'
+                title: 'What do you like to have for dinner tonight ?'
             },
-            answer: 'the answer to the question in string'
+            answer: 'Don't know, say maybe a chili pizza.'
         }
     ];
 ```

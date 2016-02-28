@@ -5,42 +5,73 @@
 angular.module('test', [])
     .controller('qController', function($scope) {
         $scope.questions = [
+
+            // This is a Multiple Choice Question with Single Answer
             {
                 type: 'qe-radio',
                 questionNo: 1,
                 content: {
-                    title: 'question one',
+                    title: 'How many continents are there in the world ?',
                     choices: [
                         {
                             choiceNo: 1,
-                            description: 'choice one'
+                            description: '5'
                         },
                         {
                             choiceNo: 2,
-                            description: 'choice two'
+                            description: '6'
+                        },
+                        {
+                            choiceNo: 3,
+                            description: '7'
+                        },
+                        {
+                            choiceNo: 4,
+                            description: '8'
                         }
                     ]
-                }
+                },
+                answer: 3
             },
+
+            // This is a Multiple Choice Question with One or More Answers
             {
-                type: 'qe-radio',
+                type: 'qe-checkbox',
                 questionNo: 2,
                 content: {
-                    title: 'question two',
+                    title: 'Which of the following are instruments ?',
                     choices: [
                         {
                             choiceNo: 1,
-                            description: 'choice one'
+                            description: 'Guitar'
                         },
                         {
                             choiceNo: 2,
-                            description: 'choice two'
+                            description: 'Pencil'
+                        },
+                        {
+                            choiceNo: 3,
+                            description: 'Piano'
+                        },
+                        {
+                            choiceNo: 4,
+                            description: 'Car'
                         }
                     ]
-                }
+                },
+                answer: [1,3]
+            },
+
+            // This is a Text-Input Question
+            {
+                type: 'qe-text-input',
+                questionNo: 3,
+                content: {
+                    title: 'What do you like to have for dinner tonight ?'
+                },
+                answer: 'Don\'t know, say maybe a chili pizza.'
             }
         ];
-        //$scope.questions = [];
 });
 
 angular.module('app', ['test', 'questionEditor'])

@@ -3,6 +3,12 @@
 
 html
   head
+    link(rel='styleSheet',href='../css/questionEditor.css')
+    style(type="text/css").
+      body {
+        width: 600px;
+        margin: 20px auto;
+      }
   body
     div(ng-controller="qController")
       question-editor(questions="questions")
@@ -10,4 +16,3 @@ html
     script(src='../bower_components/angular/angular.js')
     script(src='../js/questionEditor.js')
     script(src='app.js')
-    link(rel='styleSheet',href='../css/questionEditor.css')
