@@ -63,7 +63,7 @@ Here's an example HTML code snippet.
 
 The `questions` variable is an array of objects, each object represents a question. An example as well as specification of the format of the questions is given below :
 
-```javascript
+```
     $scope.questions = [
         
         // This is a Multiple Choice Question with Single Answer
