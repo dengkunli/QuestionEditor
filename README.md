@@ -17,9 +17,9 @@ A Demo free to play around is also available in my personal blog : http://dengku
 bower install question-editor
 ```
 
-## Use
+## How to use
 
-It's simple to use the question editor. 
+It's extremely simple to use the question editor. 
 
 All you have to do is to first add the `question-editor` dependency to your app module and then add the `question-editor` directive in a place where it is under the scope of one of your controllers. And then create a scope variable (must be an array) say `scope.questionsHolder = []` in your controller to hold the questions, and then add an attribute to the `question-editor` with value `questionsHolder` in order to set up a two-way data binding.
 
@@ -54,12 +54,12 @@ Here's an example HTML code snippet.
     <script src="path/to/app.js"></script>
     
     <!-- Insert the stylesheet in the question-editing page -->
-    <link rel="styleSheet" href="path/to/questionEditor.css"/>
+    <link rel="stylesheet" href="path/to/questionEditor.css"/>
     
     </body>
 ```
 
-## <a name="Format"></a> Format
+## <a name="Format"></a> Questions Format
 
 The `questions` variable is an array of objects, each object represents a question. An example as well as specification of the format of the questions is given below :
 
